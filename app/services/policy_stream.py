@@ -44,9 +44,9 @@ class PolicyStream:
                 Brand,
                 COALESCE(CAST(NULLIF(Country, '') AS NVARCHAR(100)), CountryCode) AS Country,
                 BusinessName, BusinessType, CustomerStatus, FreePolicy, QuoteStatus,
-                QuoteNumber, PolicyNumber, QuoteReceivedMethod,
-                QuoteCreatedDate, QuoteStartDate, QuoteEndDate,
-                OriginalPolicyStartDate, PolicyEndDate,
+                QuoteNumber, QuoteCreatedDate, QuoteReceivedMethod, 
+                QuoteStartDate, QuoteEndDate,
+                PolicyNumber, OriginalPolicyStartDate, PolicyEndDate,
                 FirstName, LastName, Email, ContactNo, EmailConcent,
                 PetName, PetType, PetBirthDate, PetBreedId, BreedName,
                 CountryCode,
@@ -73,10 +73,10 @@ class PolicyStream:
         return f"""
             SELECT                
                 CountryName, CountryCode, Brand,
-                QuoteNumber, 
-                CreatedDate, ActualStartDate,
+                QuoteNumber,QuoteCreatedDate, PolicyNumber, 
+                CreatedDate AS PolicyCreatedDate, ActualStartDate,
                 ProductName, PetType, ClientName,
-                PetName, PetType, PolicyNumber  
+                PetName, PetType   
             FROM Sales
             WHERE {where_sql}
             ORDER BY CreatedDate DESC
@@ -86,7 +86,7 @@ class PolicyStream:
     def _free_policy_raw_base_sql(where_sql: str) -> str:
         return f"""
             SELECT 
-                CountryCode, CountryName, CreatedDate, QuoteNumber, PolicyNumber,
+                CountryCode, CountryName, QuoteNumber, PolicyNumber,CreatedDate, 
                 SubAgentName, AgentCategoryId, 
                 CASE
                     WHEN AgentCategoryId = 8 THEN 'Breeder'

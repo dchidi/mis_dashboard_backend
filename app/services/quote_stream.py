@@ -64,6 +64,9 @@ class QuoteStream:
             SELECT                
                 CountryName, CountryCode, Brand,
                     QuoteNumber, 
+                    CreatedDate,
+                    PolicyNumber,
+                    PolicyCreatedDate,
                     CASE 
                         WHEN COALESCE(QuoteExpiryDate, QuoteStartDate) IS NULL THEN NULL
                         WHEN CAST(GETDATE() AS DATE) > QuoteExpiryDate THEN 'Lapsed'

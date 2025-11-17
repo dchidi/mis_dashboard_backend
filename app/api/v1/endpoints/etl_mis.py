@@ -163,7 +163,7 @@ async def etl_sales(
         )
         return await ETL.transform(
             extracted_data,
-            ['CreatedDate', 'ActualStartDate', 'ETLDateUploaded']
+            ['CreatedDate', 'ActualStartDate', 'ETLDateUploaded', 'QuoteCreatedDate']
         )
 
     tasks = [extract_and_transform(region) for region in regions]
