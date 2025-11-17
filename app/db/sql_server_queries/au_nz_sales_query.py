@@ -23,7 +23,8 @@ SELECT
 		WHEN U.FirstName IN ('FIT', 'Web') THEN 'Web' 
         ELSE 'Phone' 
     END AS SaleMethod,
-    Q.QuoteNumber
+    Q.QuoteNumber,
+    Q.CreatedDate AS QuoteCreatedDate
 
   FROM Policy P
 	LEFT JOIN PolicyCancellation PC
@@ -64,6 +65,8 @@ SELECT
     ClientName,
     PetName,
     SaleMethod,
-    QuoteNumber
+    QuoteNumber,
+    QuoteCreatedDate
+                         
 FROM policyData pd
 """)  # noqa

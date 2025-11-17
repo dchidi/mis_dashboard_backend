@@ -77,6 +77,8 @@ class ETL:
         try:
             data["ETLDateUploaded"] = pd.Timestamp.today().normalize().strftime("%Y-%m-%d") # Current date ETL was triggered
 
+            # print(data["QuoteCreatedDate"])
+
             def clean_date(col: str):
                 if col in data.columns:
                     parsed = pd.to_datetime(data[col], errors='coerce')

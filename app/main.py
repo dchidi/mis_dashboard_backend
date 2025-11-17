@@ -5,6 +5,10 @@ from app.api.api_router import api_router
 
 app = FastAPI()
 
+# Sanity check
+@app.get("/health")
+def health():
+    return {"status": "ok"}
 
 # Add extensions
 add_extensions(app)

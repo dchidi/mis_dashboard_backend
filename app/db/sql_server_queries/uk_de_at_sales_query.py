@@ -19,6 +19,7 @@ SELECT
         ELSE 'Phone' 
     END AS SaleMethod,
     Q.QuoteNumber,
+    Q.CreatedDate AS QuoteCreatedDate,
 	ISNULL(P.IsPetIdProduct, 0) as IsPetId
 
 FROM Policy P
@@ -86,7 +87,8 @@ SELECT
     ClientName,
     PetName,
     SaleMethod,
-    QuoteNumber
+    QuoteNumber,
+    QuoteCreatedDate
 FROM 
 policyData pd 
 """)  # noqa
