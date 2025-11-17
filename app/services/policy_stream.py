@@ -76,7 +76,7 @@ class PolicyStream:
                 QuoteNumber, 
                 CreatedDate, ActualStartDate,
                 ProductName, PetType, ClientName,
-                PetName, PetType  
+                PetName, PetType, PolicyNumber  
             FROM Sales
             WHERE {where_sql}
             ORDER BY CreatedDate DESC
