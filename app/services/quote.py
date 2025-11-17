@@ -279,7 +279,7 @@ class Quote:
             data_sql = f"""
                 SELECT
                     CountryName, CountryCode, Brand,
-                    QuoteNumber, 
+                    QuoteNumber,  
                     CASE 
                         WHEN COALESCE(QuoteExpiryDate, QuoteStartDate) IS NULL THEN NULL
                         WHEN CAST(GETDATE() AS DATE) > QuoteExpiryDate THEN 'Lapsed'
@@ -301,7 +301,7 @@ class Quote:
                         THEN 'No' 
                         ELSE 'Yes' 
                     END AS QuoteDetailsCompleted,
-                    QuoteStartDate, QuoteExpiryDate, QuoteReceivedMethod,
+                    CreatedDate, QuoteStartDate, QuoteExpiryDate, QuoteReceivedMethod,
                     FullName, Email, ContactNo,
                     PetName, PetType, BreedName, PetBirthDate                      
                 FROM Quote

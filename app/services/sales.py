@@ -418,8 +418,8 @@ class Sales:
             data_sql = f"""
                 SELECT
                     CountryName, CountryCode, Brand,
-                    QuoteNumber, 
-                    CreatedDate, ActualStartDate,
+                    QuoteNumber, QuoteCreatedDate,
+                    PolicyNumber, CreatedDate, ActualStartDate,
                     ProductName, PetType, ClientName,
                     PetName, PetType, SaleMethod, PolicyNumber                      
                 FROM Sales
