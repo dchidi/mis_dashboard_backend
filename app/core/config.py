@@ -8,6 +8,7 @@ class Settings(BaseSettings):
     secret_key: str
     algorithm: str = "HS256"
     access_token_expire_minutes: int = 30
+    password_reset_base_url: str = "http://localhost/reset-password"
 
     # Email settings
     smtp_server: str
@@ -15,6 +16,13 @@ class Settings(BaseSettings):
     smtp_user: str
     smtp_password: str
     email_from: str
+    smtp_use_tls: bool
+
+    # Mailgun email settings
+    # MAILGUN_DOMAIN: str
+    mailgun_domain:str
+    # MAILGUN_API_KEY: str
+    mailgun_api_key:str
 
     # MIS database credentials
     mis_db_host: str

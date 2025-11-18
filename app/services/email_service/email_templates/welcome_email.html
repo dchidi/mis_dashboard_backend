@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Welcome to {{ app_name }}</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Mobile resets (some clients honor inline CSS too) -->
+    <style type="text/css">
+      @media only screen and (max-width: 600px) {
+        .container {
+          width: 100% !important;
+          border-radius: 0 !important;
+        }
+        .header-cell {
+          height: 120px !important;
+        }
+      }
+    </style>
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      background: #f0f4ff;
+      font-family: 'Inter', sans-serif;
+    "
+  >
+    <table
+      role="presentation"
+      width="100"
+      cellpadding="0"
+      cellspacing="0"
+      style="background: #f0f4ff; width: 100% !important"
+    >
+      <tr>
+        <td align="center" style="padding: 40px 20px">
+          <!-- Fixed‑width white container -->
+          <table
+            role="presentation"
+            width="520"
+            cellpadding="0"
+            cellspacing="0"
+            class="container"
+            style="
+              width: 520px !important;
+              background: #ffffff;
+              overflow: hidden;
+              box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+              border: 1px solid rgba(255, 255, 255, 0.3);
+            "
+          >
+            <!-- Header with bulletproof background image -->
+            <tr>
+              <td
+                width="520"
+                class="header-cell"
+                background="https://cdn.jsdelivr.net/gh/dchidi/images@main/header.png"
+                valign="middle"
+                style="
+                  width: 520px !important;
+                  height: 160px;
+                  background-image: url('https://cdn.jsdelivr.net/gh/dchidi/images@main/header.png');
+                  background-size: cover;
+                  background-repeat: no-repeat;
+                  text-align: center;
+                  font-family: 'Plus Jakarta Sans', sans-serif;
+                "
+              >
+                <!--[if gte mso 9]>
+                <v:rect
+                  xmlns:v="urn:schemas-microsoft-com:vml"
+                  fill="true"
+                  stroke="false"
+                  style="width:520px; height:160px;"
+                >
+                  <v:fill
+                    type="frame"
+                    src="https://cdn.jsdelivr.net/gh/dchidi/images@main/header.png"
+                  />
+                  <v:textbox inset="0,0,0,0">
+                <![endif]-->
+                <h1
+                  style="
+                    margin: 0;
+                    font-size: 28px;
+                    font-weight: 700;
+                    color: #ffffff;
+                    padding-top: 20px;
+                    letter-spacing: -0.5px;
+                  "
+                >
+                  Welcome to {{ app_name }}!
+                </h1>
+                <p
+                  style="
+                    margin: 8px 0 0 0;
+                    font-size: 16px;
+                    color: rgba(255, 255, 255, 0.9);
+                  "
+                >
+                  Let’s get you started
+                </p>
+                <!--[if gte mso 9]>
+                  </v:textbox>
+                </v:rect>
+                <![endif]-->
+              </td>
+            </tr>
+
+            <!-- Main content -->
+            <tr>
+              <td style="padding: 40px 40px 30px">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/477/477103.png"
+                  width="72"
+                  height="72"
+                  alt="Welcome"
+                  style="display: block; margin: 0 auto 24px"
+                />
+                <h2
+                  style="
+                    margin: 0 0 16px;
+                    font-size: 22px;
+                    font-weight: 600;
+                    color: #1a1d2b;
+                    text-align: center;
+                    font-family: 'Plus Jakarta Sans', sans-serif;
+                    letter-spacing: -0.3px;
+                  "
+                >
+                  Confirm Your Email Address
+                </h2>
+                <p
+                  style="
+                    font-size: 15px;
+                    color: #5a5d72;
+                    line-height: 1.6;
+                    text-align: center;
+                    margin: 0 0 28px;
+                  "
+                >
+                  Thanks for signing up! To complete your registration, please
+                  verify your email address by clicking the button below.
+                </p>
+
+                <!-- CTA Button -->
+                <div style="text-align: center; margin-bottom: 32px">
+                  <a
+                    href="{{ verification_url }}"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #6e8efb 0%,
+                        #4a6cf7 100%
+                      );
+                      color: #ffffff;
+                      text-decoration: none;
+                      padding: 16px 32px;
+                      font-size: 16px;
+                      font-weight: 600;
+                      border-radius: 6px;
+                      display: inline-block;
+                      box-shadow: 0 4px 12px rgba(74, 108, 247, 0.25);
+                      transition: all 0.3s ease;
+                    "
+                    onmouseover="this.style.boxShadow='0 6px 16px rgba(74,108,247,0.35)'; this.style.transform='translateY(-2px)'"
+                    onmouseout="this.style.boxShadow='0 4px 12px rgba(74,108,247,0.25)'; this.style.transform='translateY(0)'"
+                  >
+                    Verify Email Address
+                  </a>
+                </div>
+
+                <p
+                  style="
+                    font-size: 14px;
+                    color: #8a8d9f;
+                    line-height: 1.5;
+                    text-align: center;
+                    margin: 0 0 8px;
+                  "
+                >
+                  Or copy and paste this link into your browser:
+                </p>
+                <p
+                  style="
+                    font-size: 13px;
+                    color: #5a5d72;
+                    word-break: break-all;
+                    background: #f8f9ff;
+                    padding: 12px;
+                    border-radius: 8px;
+                    text-align: center;
+                    margin: 0 0 28px;
+                    border: 1px solid #e6e9f5;
+                  "
+                >
+                  {{ verification_url }}
+                </p>
+                <p
+                  style="
+                    font-size: 14px;
+                    color: #8a8d9f;
+                    text-align: center;
+                    margin: 0;
+                  "
+                >
+                  ⏳ This link expires in {{ expiry_time }} hours
+                </p>
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td
+                style="
+                  background: #f8f9ff;
+                  padding: 24px;
+                  text-align: center;
+                  font-size: 13px;
+                  color: #8a8d9f;
+                  border-top: 1px solid #e6f5f8;
+                "
+              >
+                <p style="margin: 0 0 8px">
+                  If you didn’t request this, please ignore this email.
+                </p>
+                <p style="margin: 0">
+                  © {{ current_year }} {{ app_name }}. All rights reserved.
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
