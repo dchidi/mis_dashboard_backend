@@ -16,6 +16,7 @@ from app.services.auth import (
     SQLUserRepository,
     UserAccount,
 )
+from app.core.dependencies import optional_authentication
 
 router = APIRouter(prefix="/auth", tags=["Auth"])
 
@@ -66,6 +67,7 @@ def login_user(
 )
 def update_password(
     payload: PasswordUpdateRequest,
+    _: dict | None = Depends(optional_authentication),
     auth_service: AuthService = Depends(get_auth_service_dep),
 ) -> PasswordResetResponse:
     auth_service.update_password(token=payload.token, new_password=payload.new_password)

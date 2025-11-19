@@ -7,8 +7,9 @@ from app.services.quote_stream import QuoteStream
 from dateutil.relativedelta import relativedelta
 
 from app.core.enums import ReportTypeEnum, QuoteStatusEnum
+from app.core.dependencies import require_authentication
 
-router = APIRouter()
+router = APIRouter(dependencies=[Depends(require_authentication)])
 
 
 

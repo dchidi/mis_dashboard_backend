@@ -9,8 +9,9 @@ from dateutil.relativedelta import relativedelta
 
 from app.core.enums import ReportTypeEnum, QuoteStatusEnum
 from app.services.policy_stream import PolicyStream
+from app.core.dependencies import require_authentication
 
-router = APIRouter()
+router = APIRouter(dependencies=[Depends(require_authentication)])
 
 
 

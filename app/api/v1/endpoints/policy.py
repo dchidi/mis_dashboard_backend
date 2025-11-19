@@ -7,9 +7,10 @@ from app.services.policy_stream import PolicyStream
 from enum import Enum
 
 from dateutil.relativedelta import relativedelta
+from app.core.dependencies import require_authentication
 
 
-router = APIRouter()
+router = APIRouter(dependencies=[Depends(require_authentication)])
 
 
 class PolicyStatus(str, Enum):
