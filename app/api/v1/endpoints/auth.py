@@ -18,8 +18,8 @@ from app.services.auth import (
 )
 from app.core.dependencies import optional_authentication
 
-router = APIRouter(prefix="/auth", tags=["Auth"])
-
+# router = APIRouter(prefix="/auth", tags=["Auth"])
+router = APIRouter()
 
 def get_auth_service_dep(
     mis_db: Engine = Depends(get_mis_db_engine),
