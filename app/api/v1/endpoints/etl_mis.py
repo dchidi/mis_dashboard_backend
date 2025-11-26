@@ -15,10 +15,13 @@ import logging
 
 from app.db.sql_server_queries.au_nz_quote_query import AU_NZ_QUOTE_Query
 from app.db.sql_server_queries.uk_de_at_quote_query import UK_DE_AT_QUOTE_Query
+
 from app.db.sql_server_queries.au_nz_sales_query import AU_NZ_SALES_Query
 from app.db.sql_server_queries.uk_de_at_sales_query import UK_DE_AT_SALES_Query
+
 from app.db.sql_server_queries.au_nz_free_policy_query import AU_NZ_FREE_POLICY_Query
 from app.db.sql_server_queries.uk_de_at_free_policy_query import UK_DE_AT_FREE_POLICY_Query
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",

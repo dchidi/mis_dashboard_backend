@@ -11,6 +11,8 @@ from calendar import monthrange
 from app.utils.date_utils import today
 from app.core.enums import ReportTypeEnum
 
+from app.services.sales import Sales
+
 logger = logging.getLogger(__name__)
 
 def add_months(dt: date, months: int) -> date:
@@ -527,8 +529,40 @@ class Quote:
                 conversion_percent = round((converted / total_quotes) * 100, 2)
 
             # Derive the remainder so converted + remainder sum to total for charts
+            # This conversion is first time quote conversion. That is quote created and policy generated same day
             not_converted = max(total_quotes - converted, 0)
             not_converted_percent = round(100.0 - conversion_percent, 2) if total_quotes > 0 else 0.0
+
+            #****************** New logic**********************
+            # Business quote conversion is any policy created on the specified period
+            sales_obj = Sales()
+            salesData = await sales_obj.SalesSummary(
+                engine=engine, 
+                start_date=start_date, 
+                end_date=end_date,
+                country_codes= country_codes,
+                brands= brands,
+                pet_types=pet_types,
+
+            )
+            sales_numbers = 0
+            if salesData:
+                last_record = salesData["graphData"][-1]
+                sales_numbers = last_record["value"]                
+            
+            not_converted_v2 = max(total_quotes - sales_numbers, 0)
+
+            # This becomes the else part of if total_quotes == 0
+            if total_quotes > 0:
+                conversion_percent = round((sales_numbers / total_quotes) * 100, 2)
+
+            # Override previous implementation of not_converted and converted
+            not_converted = not_converted_v2
+            not_converted_percent = round(100.0 - conversion_percent, 2) if total_quotes > 0 else 0.0
+            converted = sales_numbers
+
+
+            #******************** End of new logic**********************
 
             return {
                 "total_quotes": total_quotes,
